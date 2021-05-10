@@ -14,9 +14,9 @@ All the functions to make the code works but not specific to the models. Store t
 ## parameters and initial conditions
 
 
-## add-ons
+## [add-ons](https://github.com/CcileMoul1/TheseMoulin/tree/main/add-ons)
 Other files that may help to understand the models
 
-### differential_system.md (LINK)
+### [differential_system.md](https://github.com/CcileMoul1/TheseMoulin/blob/main/add-ons/differential_system.md)
 In this file, I describe how I build a differential system to study the growth and the metabolic behvior of a population of cells inside a reactor. This system is adaptable to different kind of reactors. In my thesis I assumed the cell population to be in a batch reactor where the extracellular metabolite concentrations are constant.
 
