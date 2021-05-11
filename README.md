@@ -4,7 +4,8 @@ Scripts and models used in my PhD thesis: [Metabolic network analysis during the
 
 The hybrid automaton is an upgraded version of the one described in my article [Using a Hybrid Approach to Model Central Carbon Metabolism Across the Cell Cycle, Moulin et al. 2019](https://link.springer.com/chapter/10.1007/978-3-030-28042-0_9).
 
-## functions (LINK)
+
+## [functions](https://github.com/CcileMoul1/TheseMoulin/tree/main/functions)
 All the functions to make the code works but not specific to the models. Store these files directly in the same folder as the other files or add them temporarily to the [path](https://fr.mathworks.com/help/matlab/ref/addpath.html) or definitively with [```pathdef.m```](https://fr.mathworks.com/help/matlab/ref/savepath.html) (```pathdef.m``` is a Matlab file).
 
 ## metabolic_model
