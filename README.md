@@ -44,7 +44,7 @@ In other words: for ```i``` in ```[1,length(order)]```, ```index(order{i})``` is
 
 Returns the ratio that changes the reaction rate due to an inhibition. Let the reaction rate of a reaction be ![formula](https://render.githubusercontent.com/render/math?math=\nu{}(t)) when there is no inhibition and ![formula](https://render.githubusercontent.com/render/math?math=\nu{}(t)i(t)) when the reaction is inhibited. Then ```inhibition.m``` returns ![formula](https://render.githubusercontent.com/render/math?math=i(t)) which is the non-competitive inhibition model described by [Segel](https://www.google.com/search?q=ISBN+978-0-471-30309-1&client=ubuntu&hs=fOB&ei=JoaaYI2uEJuHjLsPoMi_mA0&oq=ISBN+978-0-471-30309-1&gs_lcp=Cgdnd3Mtd2l6EANQ_yhYsDdgzj1oAXAAeACAATyIAcoCkgEBNpgBAKABAaoBB2d3cy13aXrAAQE&sclient=gws-wiz&ved=0ahUKEwiN2dXL3cHwAhWbA2MBHSDkD9MQ4dUDCA4&uact=5):
 
-![formula](https://render.githubusercontent.com/render/math?math=\frac{K_i}{K_i+I})
+![formula](https://render.githubusercontent.com/render/math?math=\frac{K_i}{K_i%2BI})
 
 #### Usage
 ```v = inhibition(I,Ki);```
