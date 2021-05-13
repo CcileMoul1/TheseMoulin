@@ -16,7 +16,7 @@ Returns the Michaelis-Menten ratio of an activated reaction (non-essential activ
 ![formula](https://render.githubusercontent.com/render/math?math=\frac{(1%2B\frac{\beta{}}{\alpha{}K_a}A)S}{(1%2B\frac{1}{K_a}A)K_m%2B(1%2B\frac{1}{\alpha{}K_a}A)S})
 
 #### Usage
-```v=activation(S,A,Km,Ka,alpha,beta)```
+```v=activation(S,A,Km,Ka,alpha,beta);```
 
 ```v``` is a vector of the same size as S and A containing the activated Michaelis-Menten ratio values.
 The parameters of this function are:
@@ -29,10 +29,15 @@ The parameters of this function are:
 ### [getIndex.m](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/getIndex.m)
 :warning: this function is needed by the models themself
 
-Returns :soon:
+Returns a structure (a [Map Container]https://fr.mathworks.com/help/matlab/map-containers.html)) to get all the index position of the element in a list of strings (a [Cell Array of string](https://fr.mathworks.com/help/matlab/matlab_prog/cell-arrays-of-strings.html)).
+
+This function allows us to externalise the management of the order of the variables in the differential system.
 
 #### Usage
-:soon:
+```index = getIndex(order);```
+
+```index``` is a Map Container such that ```index(name)``` is equal to the index position of ```name``` in the Cell Array ```order```.
+In other words: for ```i``` in ```[1,length(order)]```, ```index(order{i})``` is equal to ```i```.
 
 ### [inhibition.m](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/inhibition.m)
 :warning: this function is needed by the models themself
