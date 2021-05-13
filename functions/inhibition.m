@@ -1,3 +1,3 @@
-function[v]=inhibition(S,ki)
-	v=ki./(ki + S);
+function[v]=inhibition(I,ki)
+	v=ki./(ki + I);
 end
