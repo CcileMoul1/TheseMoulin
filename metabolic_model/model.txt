@@ -1,0 +1,64 @@
+#Metabolic reaction#
+
+HK : EGLC + ATP => G6P + ADP
+PGI : G6P = F6P
+PFK : F6P + ATP => 2 GAP + ADP
+PGK : GAP + ADP + NAD + Pi* => PEP + ATP + NADH
+PK : PEP + ADP => PYR + ATP
+G6PDH : G6P + 2 NADP => R5P + 2 NADPH + CO2*
+EP : R5P => X5P
+TKT : R5P + 2 X5P => 2 F6P + GAP
+PDH : PYR + NAD + COA* => ACCOA + NADH + CO2*
+CS : ACCOA + OXA => CIT + COA*
+CITS : CIT + NAD => AKG + NADH + CO2*
+AKGDH : AKG + NAD + ADP + Pi* => SUC + NADH + ATP + CO2*
+SDH : SUC + 0.66 NAD => MAL + 0.66 NADH
+MLD : MAL + NAD => OXA + NADH
+PC : PYR + ATP + CO2* => OXA + ADP + Pi*
+LDH : PYR + NADH => LAC + NAD
+ACL :  CIT + COA* + ATP => OXA + ACCOA + ADP + Pi*
+VPALM : 8 ACCOA + 7 ATP + 14 NADPH => PALM + 8 COA* + 7 ADP + 14 NADP + 7 Pi*
+GLS : EGLN => GLU + NH4
+GLDH : GLU + NAD => AKG + NADH + NH4
+AlaTA : GLU + PYR => AKG + ALA
+ME : MAL + NADP => PYR + NADPH + CO2*
+GluT : GLU => EGLU
+ATPase : ATP => ADP + Pi*
+NADPHox : NADPH => NADP
+Resp : 2 NADH + 4.2 ADP + O2 + 4.2 Pi* => 2 NAD + 4.2 ATP
+leak : 2 NADH + 2 NAD
+AK : ATP + AMP = 2 ADP
+growth : dG G6P + dR R5P + dP PALM + dA ATP => X + dA ADP + dA Pi*
+
+#Regulation#
+
+##Activation##
+* HK is activated by the ratio AMP/ATP.
+* PFK is activated by the ratio AMP/ATP.
+* PK is activated by F6P.
+* LDH is activated by the ratio AMP/ATP.
+
+##Inhibition##
+* HK is inhibited by G6P.
+* PGIdir is inhibited by PEP.
+* PFK is inhibited by CIT.
+
+##Ratio##
+In those reactions, we use the ratio substrat/product instead of the concentration of the currency metabolites (ATP, ADP, NAD, NADH, NADP, NADPH). See flux.m to have examples.
+* HK
+* PFK
+* PGK
+* PK
+* G6PDH
+* PDH
+* CITS
+* AKGDH
+* SDH
+* MLD
+* PC
+* LDH
+* ACL
+* VPALM
+* GLDH
+* ME
+* Resp
