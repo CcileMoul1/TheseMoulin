@@ -18,7 +18,7 @@ Returns the Michaelis-Menten ratio of an activated reaction (non-essential activ
 #### Usage
 ```v = activation(S,A,Km,Ka,alpha,beta);```
 
-```v``` is a vector of the same size as S and A containing the activated Michaelis-Menten ratio values.
+```v``` is a vector of the same size as S and A containing the activated Michaelis-Menten ratio.
 The parameters of this function are:
 * ```S``` a vector containing the concentrations of the substrate
 * ```A``` a vector containing the concentrations of the activator. :exclamation: ```A``` and ```S``` should have the same length.
@@ -42,14 +42,14 @@ In other words: for ```i``` in ```[1,length(order)]```, ```index(order{i})``` is
 ### [inhibition.m](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/inhibition.m)
 :warning: this function is needed by the models themself
 
-Returns the ratio that changes the reaction rate due to an inhibition. Let the reaction rate of a reaction be ![formula](https://render.githubusercontent.com/render/math?math=\nu{}(t)) when there is no inhibition and ![formula](https://render.githubusercontent.com/render/math?math=\nu{}(t)i(t)) when the reaction is inhibited. Then ```inhibition.m``` returns ![formula](https://render.githubusercontent.com/render/math?math=i(t)) which is the non-competitive inhibition model described by [Segel](https://www.google.com/search?q=ISBN+978-0-471-30309-1&client=ubuntu&hs=fOB&ei=JoaaYI2uEJuHjLsPoMi_mA0&oq=ISBN+978-0-471-30309-1&gs_lcp=Cgdnd3Mtd2l6EANQ_yhYsDdgzj1oAXAAeACAATyIAcoCkgEBNpgBAKABAaoBB2d3cy13aXrAAQE&sclient=gws-wiz&ved=0ahUKEwiN2dXL3cHwAhWbA2MBHSDkD9MQ4dUDCA4&uact=5):
+Returns the ratio that changes the reaction rate due to an inhibition. Let the reaction rate of a reaction be ![formula](https://render.githubusercontent.com/render/math?math=\nu{}) when there is no inhibition and ![formula](https://render.githubusercontent.com/render/math?math=\nu{}i) when the reaction is inhibited. Then ```inhibition.m``` returns ![formula](https://render.githubusercontent.com/render/math?math=i) which is the non-competitive inhibition model described by [Segel](https://www.google.com/search?q=ISBN+978-0-471-30309-1&client=ubuntu&hs=fOB&ei=JoaaYI2uEJuHjLsPoMi_mA0&oq=ISBN+978-0-471-30309-1&gs_lcp=Cgdnd3Mtd2l6EANQ_yhYsDdgzj1oAXAAeACAATyIAcoCkgEBNpgBAKABAaoBB2d3cy13aXrAAQE&sclient=gws-wiz&ved=0ahUKEwiN2dXL3cHwAhWbA2MBHSDkD9MQ4dUDCA4&uact=5):
 
 ![formula](https://render.githubusercontent.com/render/math?math=\frac{K_i}{K_i%2BI})
 
 #### Usage
 ```v = inhibition(I,Ki);```
 
-```v``` is a vector of the same size as S containing the inhibition rates.
+```v``` is a vector of the same size as I containing the inhibition ratio.
 The parameters of this function are:
 * ```I``` a vector containing the concentrations of the inhibitor
 * ```Ki``` is the inhibition constant :exclamation: same unit as ```I```
@@ -57,10 +57,17 @@ The parameters of this function are:
 ### [mm.m](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/mm.m)
 :warning: this function is needed by the models themself
 
-Returns :soon:
+Returns the Michaelis-Menten ratio without the ![formula](https://render.githubusercontent.com/render/math?math=k_{cat}E) product or ![formula](https://render.githubusercontent.com/render/math?math=\nu_{max}):
+
+![formula](https://render.githubusercontent.com/render/math?math=\frac{S}{S%2BK_m})
 
 #### Usage
-:soon:
+```v = mm(S,Km);```
+
+```v``` is a vector of the same size as S containing the Michaelis-Menten ratio.
+The parameters of this function are:
+* ```S``` a vector containing the concentrations of the substrate
+* ```Km``` is the Michaelis constant of the reaction :exclamation: same unit as ```S```
 
 ## metabolic_model
 
