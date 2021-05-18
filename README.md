@@ -144,7 +144,12 @@ is the file containing the Map container ```param``` with all the parameters of 
 #### Usage
 ```load param.mat``` loads ```param``` into your workspace.
 
-### ```ci.mat``` link :soon:
+### [```ci.mat```](https://github.com/CcileMoul1/TheseMoulin/blob/main/param_ci/ci.mat)
+contains an example of initial condition vector: ```ci```. It is the main initial condition I used in my thesis: the concentration of all metabolites are 0 except for the currency metabolites (ATP, ADP, AMP, NAD, NADH, NADP, NADPH) and the biomass which have more biological initial value.
+The file [```ci.ods```](https://github.com/CcileMoul1/TheseMoulin/blob/main/param_ci/ci.ods) is the spreadsheet version of ```ci.mat```.
+
+#### Usage
+```load ci.mat``` loads ```ci``` into your workspace. ```ci``` is a vector of 27 float values. The order of this vector is fixed by ```getOrder.m```.
 :warning: if you create an initial condition you have to follow the same order as in ```getOrder.m``` or your own order.
 
 [//]: # (Commentaire de séparation)
