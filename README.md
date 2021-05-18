@@ -83,21 +83,52 @@ The parameters of this function are:
 Files to describe the metabolic model I built the other models upon
 
 ### [```flux.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/metabolic_model/flux.m)
+:warning: this function is needed by ```systeme.m```
 
-:soon:
+Computes the reaction rates.
+
+#### Installation
+This file needs ```getIndex.m```, ```activation.m```, ```inhibition.m``` and ```mm.m``` to calculate the reaction rates.
+
+#### Usage
+```fluxes = flux(t,x,param,order)```
+
+```fluxes``` is a [Map container](https://fr.mathworks.com/help/matlab/map-containers.html) that contains all the reaction rates at the state and time described by the given parameters (see below). ```fluxes(nameReaction)```  is the reaction rate of the reaction ```nameReaction```. You can have the list of ```nameReaction``` with ```keys(fluxes)``` or in ```systeme.m```, in ```flux.m``` or in ```model.txt``` (names in ```fluxes``` are the names in ```model.txt``` with a V at the beginning. The case matters). If a reaction is reversible, you have access to the two sub-reaction by adding ```dir``` (direct reaction) or ```rev``` (reverse reaction) at the end of the name.
+* ```t``` is a positive real number describing the time (in hour)
+* ```x``` is a vector containing the state of the system
+* ```param``` is a Map container with the value of each parameter: ```param(nameParameter) = valueParameter```. My version of ```param``` is available in ```param.mat``` or in ```param.ods```. You can have the list of ```nameParameter``` with ```keys(param)``` or in ```flux.m```
+* ```order``` is a ```cell array``` containing the names of the variables. It fixes the order of the variables in the vector. A version of ```order``` is available with ```getOrder.m```.
+
 
 ### [```getOrder.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/metabolic_model/getOrder.m)
+Returns all the variables' name in a fixed order. It determines the order of the variables in the vector.
 
-:soon:
+#### Usage
+```order = getOrder()```
+
+```order``` is a cell array containing all the variables' name. It determines the order of the variables in the vector: the state of the variable named ```order{i}``` is stored in ```x(i)```.
 
 ### [model.txt](https://github.com/CcileMoul1/TheseMoulin/blob/main/metabolic_model/model.txt)
+This file is just a textual description of the model. It contains the list of reactions in the format close to the [Metatool ones](https://pinguin.biologie.uni-jena.de/bioinformatik/networks/metatool/metatool5.0/ecoli_networks.html) (```=>``` irreversible reaction, ```=``` reversible reaction). It also contains the list of elements that change the rates (regulations and ratio).
 
-:soon:
+In this model, EGLC, EGLN and O2 are supposed to be constant. Their concentrations are stored in ```param``` : ```param('Conc_EGLC')``` is the concentration of EGLC.
+
+In this file, the metabolites with an asterix ```*``` are indicated only to balance the reactions but are not considered in the model.
 
 ### [```systeme.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/metabolic_model/systeme.m)
+Constitutes the system of differential equations.
 
-:soon:
+#### Installation
+This file needs ```flux.m``` and ```getIndex.m```
 
+#### Usage
+```dxdt = systeme(t,x,param,order)```
+
+```dxdt``` is the vector containing the rate of changes of the 27 variables at the state and time described by the given parameters : 
+* ```t``` is a positive real number describing the time (in hour)
+* ```x``` is a vector containing the state of the system
+* ```param``` is a ```containers.Map``` with the value of each parameter: ```param(nameParameter) = valueParameter```. My version of ```param``` is available in ```param.mat``` and ```param.ods```. You can have the list of ```nameParameter``` with ```keys(param)``` or in ```flux.m```
+* ```order``` is a ```cell array``` containing the names of the variables. It fixes the order of the variables in the vector. A version of ```order``` is available with ```getOrder.m```.
 
 [//]: # (Commentaire de séparation)
 
