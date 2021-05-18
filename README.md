@@ -138,6 +138,11 @@ This file needs ```flux.m``` and ```getIndex.m```
 
 ## parameters and initial conditions
 
+### ```param.mat``` link :soon:
+:soon:
+### ```ci.mat``` link :soon:
+:warning: if you create an initial condition you have to follow the same order as in ```getOrder.m``` or your own order
+
 [//]: # (Commentaire de séparation)
 
 ## scripts
