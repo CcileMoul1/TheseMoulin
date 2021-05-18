@@ -136,12 +136,16 @@ This file needs ```flux.m``` and ```getIndex.m```
 
 [//]: # (Commentaire de séparation)
 
-## parameters and initial conditions
+## [parameters and initial conditions](https://github.com/CcileMoul1/TheseMoulin/tree/main/param_ci)
 
-### ```param.mat``` link :soon:
-:soon:
+### [```param.mat```](https://github.com/CcileMoul1/TheseMoulin/blob/main/param_ci/param.mat)
+is the file containing the Map container ```param``` with all the parameters of the metabolic model. The file [```param.ods```](https://github.com/CcileMoul1/TheseMoulin/blob/main/param_ci/param.ods) is the spreadsheet version of ```param.mat``` with the unit of each parameter in addition.
+
+#### Usage
+```load param.mat``` loads ```param``` into your workspace.
+
 ### ```ci.mat``` link :soon:
-:warning: if you create an initial condition you have to follow the same order as in ```getOrder.m``` or your own order
+:warning: if you create an initial condition you have to follow the same order as in ```getOrder.m``` or your own order.
 
 [//]: # (Commentaire de séparation)
 
