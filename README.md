@@ -48,7 +48,7 @@ The parameters of this function are:
 * ```T``` is a time vector of n elements
 * ```X``` is a matrix of m rows and n columns. Each column correspond to a state of the system.
 
-```fluxes``` is a Map Container containing the same keys as the Map Container returning by ```getFlux```. When ```getFlux``` returns one element for each reaction rate (at time t, corresponding to the state x), ```fluxes``` contains the reaction rates for each time of ```T``` and the corresponding state vector of ```X```. ```fluxes(reactionName)``` is a vector such that the ith element is the reaction rate of ```reactionName``` for ```getFlux(T(i),X(:,i))```.
+```fluxes``` is a Map Container containing the same keys as the Map Container returned by ```getFlux```. When ```getFlux``` returns one element for each reaction rate (at time t, corresponding to the state x), ```fluxes``` contains the reaction rates for each time of ```T``` and the corresponding state vector of ```X```. ```fluxes(reactionName)``` is a vector such that the ith element is the reaction rate of ```reactionName``` for ```getFlux(T(i),X(:,i))```.
 
 #### Example
 ```[T X] = ode(...) % Integration of a differential system``` 
