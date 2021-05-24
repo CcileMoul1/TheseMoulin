@@ -33,6 +33,29 @@ The parameters of this function are:
 * ```Ka``` is the dissociation constant of the enzyme-activator complex, also known as activation constant :exclamation: same unit as ```A```
 * ```alpha``` and ```beta``` are two constants of the activation :exclamation: without unit
 
+
+### [```allFluxes.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/allFluxes.m)
+:warning: this function is needed by solveODE and solveODE_long.
+
+This function is thought to get all the reaction rates of a simulation (for eveyr time) from a system similar to those I present here ie with a function that returns the reaction rates at time t as a [Map Container](https://fr.mathworks.com/help/matlab/map-containers.html). The description bellow corresponds to this point of view but this function could be used differently.
+
+#### Usage
+```fluxes = allFluxes(getFlux,T,X);```
+
+
+The parameters of this function are:
+* ```getFlux``` is a [function handle](https://fr.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html) that uses two parameters (the function handle uses two parameters. The initial function could use more than two parameters): a positive real number t corresponding to a time and a vector x (with m elements) corresponding to the state of the system. This function returns a Map Container with the reaction rates calculated at time t and according to the vector x. It should be similar to ```flux.m``` (param and order should be given in the handle. See the example).
+* ```T``` is a time vector of n elements
+* ```X``` is a matrix of m rows and n columns. Each column correspond to a state of the system.
+
+```fluxes``` is a Map Container containing the same keys as the Map Container returning by ```getFlux```. When ```getFlux``` returns one element for each reaction rate (at time t, corresponding to the state x), ```fluxes``` contains the reaction rates for each time of ```T``` and the corresponding state vector of ```X```. ```fluxes(reactionName)``` is a vector such that the ith element is the reaction rate of ```reactionName``` for ```getFlux(T(i),X(:,i))```.
+
+#### Example
+```[T X] = ode(...) % Integration of a differential system``` 
+```fluxes = allFluxes(@(t,x) flux(t,x,param,order),T,X); %param and order are defined before```
+To have a better example, see ```solveODE.m``` and ```solveODE_long.m```.
+
+
 ### [```getIndex.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/getIndex.m)
 :warning: this function is needed by the models themself
 
