@@ -99,6 +99,23 @@ The parameters of this function are:
 * ```S``` a vector containing the concentrations of the substrate
 * ```Km``` is the Michaelis constant of the reaction :exclamation: same unit as ```S```
 
+### [```myApplyFun.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/myApplyFun.m)
+:warning: this function is needed by solveODE and solveODE_long.
+
+This function is thought to replace [```arrayfun```](https://fr.mathworks.com/help/matlab/ref/arrayfun.html). It applies the function given in parameter on every element of (T(i),X(:,i)) or (T(i),X(i,:)).
+
+#### Usage
+```res = myApplyFun(fun,T,X,dim);```
+
+* ```fun``` is a [function handle](https://fr.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html) that uses two parameters (the function handle uses two parameters. The initial function could use more than two parameters): a positive real number t and a vector x (with m elements). This function returns a **column** vector of size r (r could be 1).
+* ```T``` is a vector of n elements
+* ```X``` is a matrix of m rows and n columns or n rows and m columns.
+* ```dim``` indicates on which dimension of the matrix ```X``` we want to apply the function: 1 for the rows ```(T(i),X(i,:))```, 2 or another value for the columns ```(T(i),X(:,i))```.
+* ```res``` is a matrix containing the results of the application of ```fun``` on ```T``` and ```X```. This matrix has n rows and r columns or r rows and n columns.
+
+When ```dim==1```, ```X``` has n rows and m columns. ```fun``` is then applied to ```(T(i),X(i,:))``` (for i in [1,n]) and ```res``` is a matrix with n rows and r columns. To sum up: ```res(i,:) = fun(T(i),X(i,:))```
+When ```dim~=1```, ```X``` has m rows and n columns. ```fun``` is then applied to ```(T(i),X(:,i))``` (for i in [1,n]) and ```res``` is a matrix with r rows and n columns.  To sum up: ```res(:,i) = fun(T(i),X(:,i))```
+
 [//]: # (Commentaire de séparation)
 
 ## [metabolic_model](https://github.com/CcileMoul1/TheseMoulin/tree/main/metabolic_model)
