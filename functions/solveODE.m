@@ -4,7 +4,7 @@ function [t,x,fluxes,dxdts] = solveODE(x0,param,order,tf)
 	optionsode = odeset();
 	
 	% /!\ Define your solver
-	solve = @(ode_function,interval,x0) ode15s(ode_function,interval,x0,optionsode);
+	solve = @(system_function,interval,x0) ode15s(system_function,interval,x0,optionsode);
 	
 	% /!\ Define the default system you want to solve
 	
