@@ -1,4 +1,4 @@
-function [t,x,fluxes,dxdts] = solveODE_long(x0,tf,optionsode,solve,equadiff,getFlux)	
+function [t,x,fluxes,dxdts] = solveODE_long(x0,tf,solve,equadiff,getFlux)	
 	% Definition of the interval
 	interval = tf;
     if(length(tf)==1)
@@ -6,7 +6,7 @@ function [t,x,fluxes,dxdts] = solveODE_long(x0,tf,optionsode,solve,equadiff,getF
     end
     
     % Solving the ode   
-    [t x] = solve(equadiff,interval,x0,optionsode);
+    [t x] = solve(equadiff,interval,x0);
     % Finding for each time what are the reaction rates...
     fluxes = allFluxes(getFlux,t,x');
     %... the variations of x
