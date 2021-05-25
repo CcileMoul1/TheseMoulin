@@ -209,7 +209,7 @@ Constitutes the system of differential equations.
 This file needs ```flux.m``` and ```getIndex.m```
 
 #### Usage
-```dxdt = systeme(t,x,param,order)```
+```dxdt = systeme(t,x,param,order);```
 
 ```dxdt``` is the vector containing the rate of changes of the 27 variables at the state and time described by the given parameters : 
 * ```t``` is a positive real number describing the time (in hour)
@@ -229,14 +229,20 @@ This file needs ```flux.m``` and ```getIndex.m```
 is the file containing the Map container ```param``` with all the parameters of the metabolic model. The file [```param.ods```](https://github.com/CcileMoul1/TheseMoulin/blob/main/param_ci/param.ods) is the spreadsheet version of ```param.mat``` with the unit of each parameter in addition.
 
 #### Usage
-```load param.mat``` loads ```param``` into your workspace.
+```MATLAB
+load param.mat
+``` 
+loads ```param``` into your workspace.
 
 ### [```ci.mat```](https://github.com/CcileMoul1/TheseMoulin/blob/main/param_ci/ci.mat)
 contains an example of initial condition vector: ```ci```. It is the main initial condition I used in my thesis: the concentration of all metabolites are 0 except for the currency metabolites (ATP, ADP, AMP, NAD, NADH, NADP, NADPH) and the biomass which have more biological initial value.
 The file [```ci.ods```](https://github.com/CcileMoul1/TheseMoulin/blob/main/param_ci/ci.ods) is the spreadsheet version of ```ci.mat```.
 
 #### Usage
-```load ci.mat``` loads ```ci``` into your workspace. ```ci``` is a vector of 27 float values. The order of this vector is fixed by ```getOrder.m```.
+```MATLAB
+load ci.mat
+``` 
+loads ```ci``` into your workspace. ```ci``` is a vector of 27 float values. The order of this vector is fixed by ```getOrder.m```.
 :warning: if you create an initial condition you have to follow the same order as in ```getOrder.m``` or your own order.
 
 [//]: # (Commentaire de séparation)
