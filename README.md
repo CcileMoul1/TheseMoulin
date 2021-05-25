@@ -44,15 +44,17 @@ This function is thought to get all the reaction rates of a simulation (for evey
 
 
 The parameters of this function are:
-* ```getFlux``` is a [function handle](https://fr.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html) that uses two parameters (the function handle uses two parameters. The initial function could use more than two parameters): a positive real number t corresponding to a time and a vector x (with m elements) corresponding to the state of the system. This function returns a Map Container with the reaction rates calculated at time t and according to the vector x. It should be similar to ```flux.m``` (param and order should be given in the handle. See the example).
+* ```getFlux``` is a [function handle](https://fr.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html) that uses two parameters (the function handle uses two parameters. The initial function could use more than two parameters): a positive real number t corresponding to a time and a vector x (with m elements) corresponding to the state of the system. This function returns a Map Container with the reaction rates calculated at time t and according to the vector x. It should be similar to ```flux.m``` (```param``` and ```order``` should be given in the handle. See the example).
 * ```T``` is a time vector of n elements
 * ```X``` is a matrix of m rows and n columns. Each column correspond to a state of the system.
 
 ```fluxes``` is a Map Container containing the same keys as the Map Container returned by ```getFlux```. When ```getFlux``` returns one element for each reaction rate (at time t, corresponding to the state x), ```fluxes``` contains the reaction rates for each time of ```T``` and the corresponding state vector of ```X```. ```fluxes(reactionName)``` is a vector such that the ith element is the reaction rate of ```reactionName``` for ```getFlux(T(i),X(:,i))```.
 
 #### Example
-```[T X] = ode(...) % Integration of a differential system``` 
-```fluxes = allFluxes(@(t,x) flux(t,x,param,order),T,X); %param and order are defined before```
+```MATLAB
+[T X] = ode(...) % Integration of a differential system 
+fluxes = allFluxes(@(t,x) flux(t,x,param,order),T,X); %param and order are defined before
+```
 To have a better example, see ```solveODE.m``` and ```solveODE_long.m```.
 
 
@@ -115,6 +117,51 @@ This function is thought to replace [```arrayfun```](https://fr.mathworks.com/he
 
 When ```dim==1```, ```X``` has n rows and m columns. ```fun``` is then applied to ```(T(i),X(i,:))``` (for i in [1,n]) and ```res``` is a matrix with n rows and r columns. To sum up: ```res(i,:) = fun(T(i),X(i,:))```
 When ```dim~=1```, ```X``` has m rows and n columns. ```fun``` is then applied to ```(T(i),X(:,i))``` (for i in [1,n]) and ```res``` is a matrix with r rows and n columns.  To sum up: ```res(:,i) = fun(T(i),X(:,i))```
+
+### [```solveODE_long.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/solveODE_long.m)
+:warning: this function is used in the scripts.
+
+This function solves the differential system given in parameters or directly
+
+#### Installation
+```solveODE.m``` and ```solveODE_long.m``` use ```allFluxes.m``` and ```myApplyFun.m```.
+
+#### Usage
+```[t,x,fluxes,dxdts] = solveODE_long(x0,tf,solve,equadiff,getFlux);```
+
+* ```x0``` is the initial condition: a vector of m elements
+* ```tf``` is either the final time of the simulation (the interval of integration is then ```interval = [0 tf]```), or directly the interval of integration (```interval = tf```). 
+* ```solve``` is a [function handle](https://fr.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html) of a solver (```ode45```, ```ode15s```,...). This function handle has to take as inputs: ```system_function``` (the differential system),```interval``` (the interval of integration) and ```x0``` (the initial condition). The option used by the solver have to be defined directly in the function handle (see example bellow).
+* ```equadiff``` is a function handle of the function describing the differential system. The function handle has to take two inputs: a positive number that represent the time and a vector of m elements representing the state of the system. It returns a **column** vector of m elements.
+* ```getFlux``` is a function handle of the flux function. This function handle has to take two inputs: a positive number that represent the time and a vector of m elements representing the state of the system. It returns a [Map container](https://fr.mathworks.com/help/matlab/map-containers.html) that contains all the reaction rates at the state and time described by the given parameters.
+
+* ```t``` is the column vector of n elements returned by the solver: it contains the evaluation points. If ```interval``` contains two values, then ```t``` contains the internal evaluation points used to perform the integration. If ```interval``` contains more than two values, then ```t``` is equal to ```interval```.
+* ```x``` is the solution of the integration returned as matrix of n rows and m columns. Each row in ```x``` corresponds to the solution at the value returned in the corresponding row of ```t```.
+* ```fluxes``` is a Map Container where ```fluxes(reactionName)``` is a vector of n elements, corresponding to the reaction rate of the reaction ```reactionName``` at every time of ```t```.
+* ```dxdts``` is a matrix of n rows and m columns. The ith row in ```dxdts``` corresponds to ```equadiff(t(i),x(i,:))'```. :exclamation: ```equadiff``` returns a column vector but the results are store as rows in ```dxdts```.
+
+#### [```solveODE.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/solveODE.m)
+This function is the short version of ```solveODE_long.m```. Instead of giving the solver, the differential system and the flux function in parameter, there are defined in the function (:exclamation: change the file when you want to change the system you study). ```solveODE.m``` is thought to be a shortcut for ```solveODE_long.m``` and to avoid the repetition of ```param``` and ```order``` that may lead to errors. ```solveODE.m``` is thought to be used with systems similar to the systems I present here (with ```param``` and ```order```). If your system does not use ```param``` and ```order```, prefer the use of ```solveODE_long.m```.
+
+To use this function: ```[t,x,fluxes,dxdts] = solveODE(x0,param,order,tf);```. 
+
+#### Example
+```solveODE_long.m```:
+
+```MATLAB
+optionsode = odeset();
+solve = @(ode_function,interval,x0) ode45(ode_function,interval,x0,optionsode);
+equadiff = @(t,x) systeme(t,x,param,order);
+getFlux = @(t,x) flux(t,x,param,order);
+[t,x,fluxes,dxdts] = solveODE_long(x0,tf,solve,equadiff,getFlux);
+```
+```optionsode``` is an [```odeset```](https://fr.mathworks.com/help/matlab/ref/odeset.html) to define the options used by the solver.
+
+or directly
+```MATLAB
+optionsode = odeset();
+[t,x,fluxes,dxdts] = solveODE_long(x0,tf,@(ode_function,interval,x0) ode45(ode_function,interval,x0,optionsode),@(t,x) systeme(t,x,param,order),@(t,x) flux(t,x,param,order));
+```
 
 [//]: # (Commentaire de séparation)
 
