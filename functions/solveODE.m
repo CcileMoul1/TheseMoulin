@@ -8,10 +8,8 @@ function [t,x,fluxes,dxdts] = solveODE(x0,param,order,tf)
 	
 	% /!\ Define the default system you want to solve
 	
-	if nargin<=4
-		equadiff = @(t,x) systeme(t,x,param,order);
-		getFlux = @(t,x) flux(t,x,param,order);
-    end 
+	equadiff = @(t,x) systeme(t,x,param,order);
+	getFlux = @(t,x) flux(t,x,param,order);
 	
 	% Definition of the interval
 	interval = tf;
