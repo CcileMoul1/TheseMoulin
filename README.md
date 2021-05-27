@@ -4,6 +4,8 @@ Scripts and models used in my PhD thesis: [Metabolic network analysis during the
 
 The hybrid automaton is an upgraded version of the one described in my article [Using a Hybrid Approach to Model Central Carbon Metabolism Across the Cell Cycle, Moulin et al. 2019](https://link.springer.com/chapter/10.1007/978-3-030-28042-0_9).
 
+:exclamation: Disclaimer: the codes here have been written progressively, each features added when needed. So it's probably not optimal but it works.
+
 ## [add-ons](https://github.com/CcileMoul1/TheseMoulin/tree/main/add-ons)
 Other files that may help to understand the models
 
