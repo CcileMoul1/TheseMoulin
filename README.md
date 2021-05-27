@@ -13,7 +13,7 @@ In this file, I describe how I build a differential system to study the growth a
 [//]: # (Commentaire de séparation)
 
 ## [functions](https://github.com/CcileMoul1/TheseMoulin/tree/main/functions)
-All the functions to make the code works but not specific to the models. Store these files directly in the same folder as the other files or add them temporarily to the [path](https://fr.mathworks.com/help/matlab/ref/addpath.html) or definitively with [```pathdef.m```](https://fr.mathworks.com/help/matlab/ref/savepath.html) (```pathdef.m``` is a Matlab file).
+All the functions or procedures to make the code works but not specific to the models. Store these files directly in the same folder as the other files or add them temporarily to the [path](https://fr.mathworks.com/help/matlab/ref/addpath.html) or definitively with [```pathdef.m```](https://fr.mathworks.com/help/matlab/ref/savepath.html) (```pathdef.m``` is a Matlab file).
 
 ### [```activation.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/activation.m)
 :warning: this function is needed by the models themself.
