@@ -6,16 +6,33 @@ The hybrid automaton is an upgraded version of the one described in my article [
 
 :exclamation: Disclaimer: the codes here have been written progressively, each features added when needed. So it's probably not optimal but it works.
 
-## [add-ons](https://github.com/CcileMoul1/TheseMoulin/tree/main/add-ons)
+## Installation
+First use: (1. and 2. can be inversed)
+1. Launch Matlab 
+2. Go to this folder
+3. run ```initiate_path``` to create a [```pathdef.m```](https://fr.mathworks.com/help/matlab/ref/savepath.html) file
+4. You can run every scripts or functions
+
+Other uses: (the order is important for Matlab to find the pathdef file)
+1. Go to this folder
+2. Lauch Matlab
+3. You can run every scripts or functions
+
+
+## add-ons
 Other files that may help to understand the models
 
-### [differential_system.md](https://github.com/CcileMoul1/TheseMoulin/blob/main/add-ons/differential_system.md)
+### [differential_system.md](https://github.com/CcileMoul1/TheseMoulin/blob/main/differential_system.md)
 In this file, I describe how I build a differential system to study the growth and the metabolic behvior of a population of cells inside a reactor. This system is adaptable to different kind of reactors. In my thesis I assumed the cell population to be in a batch reactor where the extracellular metabolite concentrations are constant.
+
+### [```initiate_path.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/initiate_pathdef.m)
+
+Add to the path all the folders and then create [```pathdef.m```](https://fr.mathworks.com/help/matlab/ref/savepath.html) file to save this configuration.
 
 [//]: # (Commentaire de séparation)
 
 ## [functions](https://github.com/CcileMoul1/TheseMoulin/tree/main/functions)
-All the functions or procedures to make the code works but not specific to the models. Store these files directly in the same folder as the other files or add them temporarily to the [path](https://fr.mathworks.com/help/matlab/ref/addpath.html) or definitively with [```pathdef.m```](https://fr.mathworks.com/help/matlab/ref/savepath.html) (```pathdef.m``` is a Matlab file).
+All the functions or procedures to make the code works but not specific to the models.
 
 ### [```activation.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/activation.m)
 :warning: this function is needed by the models themself.
