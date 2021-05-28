@@ -88,6 +88,22 @@ The parameters of this function are:
 * ```I``` a vector containing the concentrations of the inhibitor
 * ```Ki``` is the inhibition constant :exclamation: same unit as ```I```
 
+
+### [```mapToMatrix.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/mapToMatrix.m)
+:warning: this function is used in scripts
+
+Transform a [Map Container](https://fr.mathworks.com/help/matlab/map-containers.html) into a matrix.
+
+#### Usage
+```[names, matrice] = mapToMatrix(map,ordre_name);```
+
+* ```map``` is a Map Container where each value is a row vector of size n containing numbers,
+* ```ordre_name``` is an optional parameter. It is a subset of ```keys(map)``` and it fixes the order and the content of ```matrice```
+* ```names``` is either ```ordre_name``` when this parameter is given or ```keys(map)``` when ```ordre_name``` is not given,
+* ```matrice``` is  matrice of n columns and as many rows as there are elements in ```name```. For every i from 1 to the length of ```name```, ```matrice(i,:)=map(ordre_name{i});```
+
+
+
 ### [```mm.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/mm.m)
 :warning: this function is needed by the models themself
 
