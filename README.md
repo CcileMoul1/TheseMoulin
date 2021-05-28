@@ -349,4 +349,11 @@ loads ```ci``` into your workspace. ```ci``` is a vector of 27 float values. The
 
 [//]: # (Commentaire de séparation)
 
-## scripts
+## [scripts](https://github.com/CcileMoul1/TheseMoulin/tree/main/scripts)
+Examples to show how to use the functions and the models.
+
+### [```script_temporal_solve_draw.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/scripts/script_temporal_solve_draw.m)
+Example of a simple simulation from 0 to tf. The script also draws the variables and the reaction rates
+
+
+
