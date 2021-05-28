@@ -59,6 +59,11 @@ fluxes = allFluxes(@(t,x) flux(t,x,param,order),T,X); %param and order are defin
 ```
 To have a better example, see ```solveODE.m``` and ```solveODE_long.m```.
 
+### [fullscreen.m](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/fullscreen.m)
+:warning: this procedure is used in scripts
+
+Procedure to put into fullscreen every open figure.
+
 
 ### [```getIndex.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/getIndex.m)
 :warning: this function is needed by the models themself
@@ -135,6 +140,16 @@ This function is thought to replace [```arrayfun```](https://fr.mathworks.com/he
 
 When ```dim==1```, ```X``` has n rows and m columns. ```fun``` is then applied to ```(T(i),X(i,:))``` (for i in [1,n]) and ```res``` is a matrix with n rows and r columns. To sum up: ```res(i,:) = fun(T(i),X(i,:))```
 When ```dim~=1```, ```X``` has m rows and n columns. ```fun``` is then applied to ```(T(i),X(:,i))``` (for i in [1,n]) and ```res``` is a matrix with r rows and n columns.  To sum up: ```res(:,i) = fun(T(i),X(:,i))```
+
+### [saveAll.m](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/saveAll.m)
+:warning: this procedure is used in scripts
+
+Procedure to save all the open figures.
+
+#### Usage
+```saveAll(dossier,format_fig);```
+
+This procedure saves every open figures into the folder ```dossier``` to the format ```format_fig```. If the figure has a name, this name will be the name of the file. Else, the file is named ```figure_i``` with i the number of the figure.
 
 ### [```solveODE_long.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/solveODE_long.m)
 :warning: this function is used in the scripts.
