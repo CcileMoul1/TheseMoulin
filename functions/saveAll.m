@@ -1,4 +1,4 @@
-%Procedure to save into 'format_fig' every open figures. They are saved into the file named 'dossier'
+%Procedure to save into 'format_fig' every open figures. They are saved into the folder named 'dossier'
 % If a figure has a name, this name is used for the file's name. Else, the file name is 'figure_i' with i being the number of the figure.
 function  saveAll(dossier,format_fig)	
 	figs = findall(gcf,'Type','Figure');
