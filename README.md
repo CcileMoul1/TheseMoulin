@@ -59,6 +59,58 @@ fluxes = allFluxes(@(t,x) flux(t,x,param,order),T,X); %param and order are defin
 ```
 To have a better example, see ```solveODE.m``` and ```solveODE_long.m```.
 
+### drawMatrix procedures
+
+Procedures to draw curves from matrices.
+All of these procedures are based on ```drawMatrix.m```.
+
+#### [```drawMatrix.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/drawMatrix.m)
+
+Draw curves from one matrice.
+
+##### Usage
+```drawMatrix(t,x,names,color);```
+
+* ```t``` is a vector of n elements. It is used as the abscissa vector,
+* ```x``` is a matrice of n rows and m colums. Each row is used as the ordinate vector,
+* ```names``` is a cell array of m strings,
+* ```color``` is a string that could describe the color, the type of line, the symbol used to draw the curves. These information are used for each curves. (examples for ```color``` : ```-```, ```*```, ```-dc```...)
+
+This procedure creates as many figures as needed. On each figure, there are 12 subplots (4 rows and 3 columns) maximum. On each of the m subplots, the curve ```(t,x(:,i))``` is drawn and its title is ```names{i}```.
+By default, the drawing function is ```plot``` (linear axis) and the ```LineWidth``` is 2.
+
+#### [```drawMatrix2.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/drawMatrix2.m)
+
+Draw curves from two matrices.
+
+##### Usage
+```drawMatrix2(t,x,t2,x2,names,color1,color2)```
+
+* ```t``` and ```t2``` are vectors of n1 and n2 elements. They are used as the abscissa vectors,
+* ```x``` and ```x2``` are matrices of n1 and n2 rows and m colums. Each row is used as the ordinate vector,
+* ```names``` is a cell array of m strings,
+* ```color``` and ```color2``` are strings that could describe the color, the type of line, the symbol used to draw the curves. ```color``` is used for ```(t,x)``` curves, ```color2``` for ```(t2,x2)```
+
+Similar to ```drawMatrix``` but on each subplot, two curves are drawn : ```(t,(x(:,i))``` with ```color``` and ```(t2,x2(:,i))``` with ```color2```.
+
+#### [```drawMatrix3.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/drawMatrix3.m)
+
+Similar to ```drawMatrix2.m``` but with 3 curves: ```drawMatrix3(t,x,t2,x2,t3,x3,names,color1,color2,color3)```
+
+#### [```drawMatrix_.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/drawMatrix_.m)
+
+Draw curves for r matrices.
+
+##### Usage
+```drawMatrix_(ts,xs,names,colors)```
+
+* ```ts``` is a cell array containing r vectors used as abscissa vectors,
+* ```xs``` is a cell array containing r matrices of m columns. The number of rows of the matrice ```xs{i}``` is the number of element of the vector ```ts{i}```
+* ```names``` is a cell array of m strings,
+* ```colors``` is a cell array containing r strings.
+
+Similar to ```drawMatrix```. On each subplot, r curves are drawn.
+
 ### [fullscreen.m](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/fullscreen.m)
 :warning: this procedure is used in scripts
 
