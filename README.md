@@ -135,7 +135,7 @@ Procedure to put into fullscreen every open figure.
 
 
 ### [```getIndex.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/getIndex.m)
-:warning: this function is needed by the models themself
+:warning: this function is needed by the models themselves
 
 Returns a structure (a [Map Container](https://fr.mathworks.com/help/matlab/map-containers.html)) to get all the index position of the element in a list of strings (a [Cell Array of string](https://fr.mathworks.com/help/matlab/matlab_prog/cell-arrays-of-strings.html)).
 
@@ -148,7 +148,7 @@ This function allows us to externalise the management of the variables' order in
 In other words: for ```i``` in ```[1,length(order)]```, ```index(order{i})``` is equal to ```i```.
 
 ### [```inhibition.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/inhibition.m)
-:warning: this function is needed by the models themself
+:warning: this function is needed by the models themselves
 
 Returns the ratio that changes the reaction rate due to an inhibition. Let the reaction rate of a reaction be ![formula](https://render.githubusercontent.com/render/math?math=\nu{}) when there is no inhibition and ![formula](https://render.githubusercontent.com/render/math?math=\nu{}i) when the reaction is inhibited. Then ```inhibition.m``` returns ![formula](https://render.githubusercontent.com/render/math?math=i) which is the non-competitive inhibition model described by [Segel](https://www.google.com/search?q=ISBN+978-0-471-30309-1&client=ubuntu&hs=fOB&ei=JoaaYI2uEJuHjLsPoMi_mA0&oq=ISBN+978-0-471-30309-1&gs_lcp=Cgdnd3Mtd2l6EANQ_yhYsDdgzj1oAXAAeACAATyIAcoCkgEBNpgBAKABAaoBB2d3cy13aXrAAQE&sclient=gws-wiz&ved=0ahUKEwiN2dXL3cHwAhWbA2MBHSDkD9MQ4dUDCA4&uact=5):
 
@@ -179,7 +179,7 @@ Transform a [Map Container](https://fr.mathworks.com/help/matlab/map-containers.
 
 
 ### [```mm.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/mm.m)
-:warning: this function is needed by the models themself
+:warning: this function is needed by the models themselves
 
 Returns the Michaelis-Menten ratio without the ![formula](https://render.githubusercontent.com/render/math?math=k_{cat}E) product or ![formula](https://render.githubusercontent.com/render/math?math=\nu_{max}):
 
