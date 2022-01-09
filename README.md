@@ -35,7 +35,7 @@ Add to the path all the folders and then create [```pathdef.m```](https://fr.mat
 All the functions or procedures to make the code works but not specific to the models.
 
 ### [```activation.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/activation.m)
-:warning: this function is needed by the models themself.
+:warning: this function is needed by the models themselves.
 
 Returns the Michaelis-Menten ratio of an activated reaction (non-essential activation model by [Segel](https://www.google.com/search?q=ISBN+978-0-471-30309-1&client=ubuntu&hs=fOB&ei=JoaaYI2uEJuHjLsPoMi_mA0&oq=ISBN+978-0-471-30309-1&gs_lcp=Cgdnd3Mtd2l6EANQ_yhYsDdgzj1oAXAAeACAATyIAcoCkgEBNpgBAKABAaoBB2d3cy13aXrAAQE&sclient=gws-wiz&ved=0ahUKEwiN2dXL3cHwAhWbA2MBHSDkD9MQ4dUDCA4&uact=5)): 
 
