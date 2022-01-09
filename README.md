@@ -56,7 +56,7 @@ The parameters of this function are:
 ### [```allFluxes.m```](https://github.com/CcileMoul1/TheseMoulin/blob/main/functions/allFluxes.m)
 :warning: this function is needed by solveODE and solveODE_long.
 
-This function is thought to get all the reaction rates of a simulation (for eveyr time) from a system similar to those I present here ie with a function that returns the reaction rates at time t as a [Map Container](https://fr.mathworks.com/help/matlab/map-containers.html). The description bellow corresponds to this point of view but this function could be used differently.
+This function is thought to get all the reaction rates of a simulation (for every time) from a system similar to those I present here ie with a function that returns the reaction rates at time t as a [Map Container](https://fr.mathworks.com/help/matlab/map-containers.html). The description bellow corresponds to this point of view but this function could be used differently.
 
 #### Usage
 ```fluxes = allFluxes(getFlux,T,X);```
